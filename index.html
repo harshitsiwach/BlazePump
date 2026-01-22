@@ -3,9 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | FB_Pmpfun</title>
+    <title>Blaze Pump</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    
+    <!-- Twitter Player Card Config -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@rupturelabs">
+    <meta name="twitter:title" content="Blaze Pump">
+    <meta name="twitter:description" content="Click to play this game directly in your feed!">
+    <meta name="twitter:player" content="https://blaze-pump.vercel.app/index.html">
+    <meta name="twitter:player:width" content="600">
+    <meta name="twitter:player:height" content="600">
+    <meta name="twitter:image" content="https://blaze-pump.vercel.app/cover-image.png">
+
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+          background: #000;
+      }
+      #unity-container {
+          width: 100%;
+          height: 100%;
+      }
+      canvas {
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -104,8 +135,11 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "500px";
-        canvas.style.height = "900px";
+        // canvas.style.width = "500px";
+        // canvas.style.height = "900px";
+        // Force 100% for Twitter Card iframe compatibility
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
